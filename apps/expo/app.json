@@ -1,13 +1,18 @@
 {
   "expo": {
-    "name": "solito-tailwindcss",
-    "slug": "solito-tailwindcss",
+    "name": "running-app",
+    "slug": "running-app",
     "version": "1.0.0",
     "sdkVersion": "44.0.0",
     "scheme": "solito-tailwindcss",
-    "platforms": ["ios", "android"],
+    "platforms": [
+      "ios",
+      "android"
+    ],
     "ios": {
       "bundleIdentifier": "com.solito.tailwindcss"
-    }
+    },
+    "description": "",
+    "githubUrl": "https://github.com/kloshar4o/vercel-aaha"
   }
 }
