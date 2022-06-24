@@ -12,9 +12,10 @@
     "@expo/next-adapter": "^3.1.20",
     "app": "*",
     "next": "12.1.0",
+    "next-images": "1.8.4",
     "raf": "^3.4.1",
-    "react-native-web": "0.0.0-b2a3e86d",
-    "tailwindcss-react-native": "latest"
+    "react-native-web": "^0.18.1",
+    "tailwindcss-react-native": "^1.7.10"
   },
   "devDependencies": {
     "@types/node": "17.0.21",

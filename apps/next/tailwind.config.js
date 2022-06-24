@@ -1,10 +1,12 @@
+const theme = require('../../packages/app/tailwind.theme')
+
 module.exports = {
   content: [
     './pages/**/*.{js,jsx,ts,tsx}',
     '../../packages/**/*.{js,jsx,ts,tsx}',
   ],
   theme: {
-    extend: {},
+    ...theme,
   },
   plugins: [],
   important: 'html',

@@ -17,6 +17,7 @@ export function NativeNavigation() {
         name="home"
         component={HomeScreen}
         options={{
+          headerShown: false,
           title: 'Home',
         }}
       />

@@ -7,8 +7,8 @@
     "@react-navigation/native-stack": "^6.5.0",
     "expo-linking": "^3.0.0",
     "moti": "canary",
-    "solito": "latest",
-    "tailwindcss-react-native": "latest"
+    "solito": "^0.0.26",
+    "tailwindcss-react-native": "^1.7.10"
   },
   "sideEffects": false
 }

@@ -1,21 +1,31 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   webpack5: true,
 }
 
-const { withExpo } = require('@expo/next-adapter')
-const withPlugins = require('next-compose-plugins')
 const withTM = require('next-transpile-modules')([
   'solito',
   'moti',
   '@motify/core',
   '@motify/components',
   'tailwindcss-react-native',
+  'react-native-web',
   'app',
 ])
 
+const { withExpo } = require('@expo/next-adapter')
+const withExpoConfig = { projectRoot: __dirname }
+
+const path = require('path')
+const withImages = require('next-images')
+const withImagesConfig = {
+  exclude: path.resolve(__dirname, '../../node_modules/*'),
+  images: { disableStaticImages: true },
+}
+
+const withPlugins = require('next-compose-plugins')
 module.exports = withPlugins(
-  [withTM, [withExpo, { projectRoot: __dirname }]],
+  [withTM, [withExpo, withExpoConfig], [withImages, withImagesConfig]],
   nextConfig
 )
