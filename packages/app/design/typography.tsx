@@ -9,6 +9,10 @@ export const Text = styled(RNText)
  * You can use this pattern to create components with default styles
  */
 export const P = styled(RNText, 'text-base text-[#a2a2a2] mb-4')
+P.defaultProps = {
+  accessibilityRole: 'text',
+  selectable: true,
+}
 
 /**
  * Components can have defaultProps and styles
@@ -17,6 +21,7 @@ export const H1 = styled(RNText, 'text-4xl text-white font-normal mb-4')
 H1.defaultProps = {
   accessibilityLevel: 1,
   accessibilityRole: 'header',
+  selectable: true,
 }
 
 /**
@@ -35,6 +40,7 @@ export const A = forwardRef<RNText, StyledProps<AProps>>(function A(
     web: {
       href,
       target,
+      selectable: true,
     },
     default: {
       onPress: (event) => {
