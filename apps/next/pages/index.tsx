@@ -1,3 +1,3 @@
-import { UserLoginScreen } from 'app/features/user/login-screen'
+import { UserWelcomeScreen } from 'app/features/user/welcome-screen'
 
-export default UserLoginScreen
+export default UserWelcomeScreen

@@ -3,17 +3,28 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { UserWelcomeScreen } from '../../features/user/welcome-screen'
 import { UserDetailScreen } from '../../features/user/detail-screen'
 import { UserLoginScreen } from '../../features/user/login-screen'
+import { useContext, useState } from 'react'
+import { AuthContext } from '../../provider/auth/AuthContext'
+import { checkSessionThrottle } from '../../api/auth'
+import { LoadingView } from '../../design/layout'
 
 const Stack = createNativeStackNavigator<{
   'user-login': undefined
   'user-welcome': undefined
-  'user-detail': {
-    id: string
-  }
+  'user-detail': { id: string }
 }>()
 
 export function NativeNavigation() {
-  return (
+  const [isLoading, setLoading] = useState(true)
+  const { authenticated, setAuthenticated } = useContext(AuthContext)
+
+  checkSessionThrottle()
+    .catch(() => setAuthenticated(false))
+    .finally(() => setTimeout(() => setLoading(false), 250))
+
+  return isLoading ? (
+    <LoadingView />
+  ) : !authenticated ? (
     <Stack.Navigator>
       <Stack.Screen
         name="user-login"
@@ -23,6 +34,9 @@ export function NativeNavigation() {
           title: 'Login',
         }}
       />
+    </Stack.Navigator>
+  ) : (
+    <Stack.Navigator>
       <Stack.Screen
         name="user-welcome"
         component={UserWelcomeScreen}

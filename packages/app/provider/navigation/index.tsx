@@ -1,12 +1,9 @@
 import { NavigationContainer } from '@react-navigation/native'
 import * as Linking from 'expo-linking'
-import React, { useMemo } from 'react'
+import { useMemo, ReactNode, useContext } from 'react'
+import { AuthContext } from '../auth/AuthContext'
 
-export function NavigationProvider({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export function NavigationProvider({ children }: { children: ReactNode }) {
   return (
     <NavigationContainer
       linking={useMemo(
@@ -15,8 +12,8 @@ export function NavigationProvider({
           config: {
             initialRouteName: 'user-login',
             screens: {
-              'user-login': '',
               'user-welcome': '',
+              'user-login': 'login',
               'user-detail': 'user/:id',
             },
           },

@@ -5,6 +5,7 @@ import type { SolitoAppProps } from 'solito'
 import 'raf/polyfill'
 
 import '../global.css'
+import { Layout } from '../components/layout'
 
 function MyApp({ Component, pageProps }: SolitoAppProps) {
   return (
@@ -18,7 +19,9 @@ function MyApp({ Component, pageProps }: SolitoAppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Provider>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </Provider>
     </>
   )

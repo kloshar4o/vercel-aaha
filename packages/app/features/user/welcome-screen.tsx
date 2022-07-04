@@ -3,16 +3,10 @@ import { LinearGradient } from 'expo-linear-gradient'
 import RightArrow from '../../assets/svg/right-arrow'
 import { useRouter } from 'solito/router'
 import { H1, P, Text } from 'app/design/typography'
-import { useEffect, useState } from 'react'
-import { LoadingView, Row, Screen } from '../../design/layout'
+import { Row, Screen } from '../../design/layout'
 
 export function UserWelcomeScreen() {
   const { push } = useRouter()
-  const [isLoading, setLoading] = useState(true)
-
-  useEffect(() => {
-    setTimeout(setLoading.bind({}, false), 500)
-  }, [isLoading])
 
   const GreenColumn = (props) => (
     <View className="mx-2 overflow-hidden rounded-3xl">
@@ -23,9 +17,7 @@ export function UserWelcomeScreen() {
       />
     </View>
   )
-  return isLoading ? (
-    <LoadingView />
-  ) : (
+  return (
     <Screen>
       <ImageBackground
         source={require('app/assets/img/running.jpg')}

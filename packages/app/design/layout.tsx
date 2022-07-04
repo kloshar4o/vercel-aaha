@@ -22,12 +22,14 @@ export const LoadingView = (props) => {
 }
 export const Screen = (props) => {
   return (
-    <View className="flex-1 justify-center bg-gray-900 landscape:items-center">
-      <SafeArea
-        className="mx-auto max-h-[926px] w-full max-w-lg flex-1 shadow"
-        {...props}
-      >
-        {props.children}
+    <View className="flex-1 justify-center bg-gray-900">
+      <SafeArea>
+        <View
+          className="mx-auto w-full max-w-lg max-w-lg flex-1 shadow"
+          {...props}
+        >
+          {props.children}
+        </View>
       </SafeArea>
     </View>
   )

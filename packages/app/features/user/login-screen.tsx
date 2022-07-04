@@ -1,10 +1,12 @@
 import { Screen } from 'app/design/layout'
 import { TextInput, View, Image } from 'react-native'
-import { useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import { FormInput, KeyboardAvoid } from '../../design/form'
 import { CustomButton } from '../../design/buttons'
+import { AuthContext } from '../../provider/auth/AuthContext'
 
 export function UserLoginScreen() {
+  const { authorize } = useContext(AuthContext)
   const [username, setUsername] = useState('demo')
   const [password, setPassword] = useState('demo')
 
@@ -24,7 +26,7 @@ export function UserLoginScreen() {
     if (!username || !password) return
     if (submitting) return
     setSubmitting(true)
-    setTimeout(() => setSubmitting(false), 1000)
+    return authorize(username, password).catch(() => setSubmitting(false))
   }
 
   return (

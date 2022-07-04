@@ -14,6 +14,10 @@ All notable changes to this project will be documented in this file.
 
 # Versions
 
+## [0.2.0]
+
+- 📦 NEW: Added authorization route guards
+
 ## [0.1.1]
 
 - 🐛 FIX: Build errors
