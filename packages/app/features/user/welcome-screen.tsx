@@ -8,7 +8,7 @@ import { Row, Screen } from '../../design/layout'
 export function UserWelcomeScreen() {
   const { push } = useRouter()
 
-  const GreenColumn = (props) => (
+  const GreenColumn = (props: any) => (
     <View className="mx-2 overflow-hidden rounded-3xl">
       <LinearGradient
         colors={['#9be83b', 'transparent']}

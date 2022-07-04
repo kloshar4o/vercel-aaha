@@ -14,7 +14,11 @@ All notable changes to this project will be documented in this file.
 
 # Versions
 
-## [0.2.1]
+### [0.2.2]
+
+- 🐛 FIX: Build errors
+
+### [0.2.1]
 
 - 📖 DOC: Update the README
 
@@ -22,7 +26,7 @@ All notable changes to this project will be documented in this file.
 
 - 📦 NEW: Added authorization route guards
 
-## [0.1.1]
+### [0.1.1]
 
 - 🐛 FIX: Build errors
 

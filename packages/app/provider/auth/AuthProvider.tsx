@@ -9,7 +9,7 @@ export type AuthProviderProps = {
 export const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
   const [authenticated, setAuthenticated] = useState(true)
 
-  const authorize = (username, password) =>
+  const authorize = (username: string, password: string) =>
     login(username, password).then((response) => {
       setAuthenticated(true)
       return response

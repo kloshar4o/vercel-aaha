@@ -54,14 +54,14 @@ export function UserLoginScreen() {
             placeholder="Enter your password"
             value={password}
             onChangeText={setPassword}
-            onSubmitEditing={onLogin.bind(this)}
+            onSubmitEditing={onLogin.bind({})}
             disabled={submitting}
             secureTextEntry={true}
             ref={passwordInput}
             error={passwordError}
           />
           <CustomButton
-            onPress={onLogin.bind(this)}
+            onPress={onLogin.bind({})}
             className="mt-14 w-full rounded-full"
             loading={submitting}
             disabled={!!(passwordError || usernameError)}

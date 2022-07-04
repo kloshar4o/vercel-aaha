@@ -5,7 +5,7 @@ const backgroundColor = '#111827' //gray-900
 
 export const Row = styled(View, 'flex-row')
 
-export const LoadingView = (props) => {
+export const LoadingView = (props: {}) => {
   /* Styles are loaded faster than tailwind classes */
   return (
     <View
@@ -20,7 +20,7 @@ export const LoadingView = (props) => {
     </View>
   )
 }
-export const Screen = (props) => {
+export const Screen = (props: any) => {
   return (
     <View className="flex-1 justify-center bg-gray-900">
       <SafeArea>
