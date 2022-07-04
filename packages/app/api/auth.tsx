@@ -1,9 +1,9 @@
 let sessionThrottling = false
-let fakeLoggedIn = false
+let fakeValidSession = false
 
 export const login = (username: string, password: string) => {
   return new Promise((resolve) => {
-    fakeLoggedIn = true
+    fakeValidSession = true
     return setTimeout(resolve.bind({}, { username, password }), 300)
   })
 }
@@ -13,8 +13,8 @@ export const checkSession = () => {
 }
 
 export const checkSessionThrottle = () => {
-  if (fakeLoggedIn) return Promise.resolve()
-  setTimeout(() => (sessionThrottling = false), 60_000)
+  if (fakeValidSession) return Promise.resolve()
+  setTimeout(() => (sessionThrottling = false), 60000)
   if (sessionThrottling) return Promise.resolve()
   sessionThrottling = true
   return checkSession().catch((e) => {

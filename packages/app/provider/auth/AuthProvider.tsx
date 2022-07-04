@@ -1,12 +1,8 @@
-import React, { FC, useMemo, useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import { AuthContext } from './AuthContext'
-import { login } from '../../api/auth'
+import { login } from 'app/api/auth'
 
-export type AuthProviderProps = {
-  defaultAuthenticated?: boolean
-}
-
-export const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
+export const AuthProvider = (props: { children: JSX.Element }): JSX.Element => {
   const [authenticated, setAuthenticated] = useState(true)
 
   const authorize = (username: string, password: string) =>
@@ -24,6 +20,8 @@ export const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
   }, [authenticated])
 
   return (
-    <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={contextValue}>
+      {props.children}
+    </AuthContext.Provider>
   )
 }

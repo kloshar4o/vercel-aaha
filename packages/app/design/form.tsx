@@ -54,6 +54,7 @@ export const FormInput = forwardRef<TextInput, FormInputProps>((props, ref) => {
 
 FormInput.displayName = 'FormInput'
 
+//https://docs.expo.dev/versions/latest/react-native/keyboardavoidingview/
 export const KeyboardAvoid = (props: { children: any }) => {
   if (Platform.OS === 'web')
     return <View className="flex-1">{props.children}</View>

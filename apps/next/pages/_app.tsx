@@ -5,7 +5,7 @@ import type { SolitoAppProps } from 'solito'
 import 'raf/polyfill'
 
 import '../global.css'
-import { Layout } from '../components/layout'
+import { AuthGuard } from '../components/auth-guard'
 
 function MyApp({ Component, pageProps }: SolitoAppProps) {
   return (
@@ -19,9 +19,9 @@ function MyApp({ Component, pageProps }: SolitoAppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Provider>
-        <Layout>
+        <AuthGuard>
           <Component {...pageProps} />
-        </Layout>
+        </AuthGuard>
       </Provider>
     </>
   )

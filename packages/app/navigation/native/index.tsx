@@ -1,18 +1,13 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-
-import { UserWelcomeScreen } from '../../features/user/welcome-screen'
-import { UserDetailScreen } from '../../features/user/detail-screen'
-import { UserLoginScreen } from '../../features/user/login-screen'
+import { HomeScreen } from 'app/features/user/home-screen'
+import { UserLoginScreen } from 'app/features/user/login-screen'
 import { useContext, useState } from 'react'
-import { AuthContext } from '../../provider/auth/AuthContext'
-import { checkSessionThrottle } from '../../api/auth'
-import { LoadingView } from '../../design/layout'
+import { AuthContext } from 'app/provider/auth/AuthContext'
+import { checkSessionThrottle } from 'app/api/auth'
+import { LoadingView } from 'app/design/layout'
+import { screens } from 'app/constants/routes'
 
-const Stack = createNativeStackNavigator<{
-  'user-login': undefined
-  'user-welcome': undefined
-  'user-detail': { id: string }
-}>()
+const Stack = createNativeStackNavigator()
 
 export function NativeNavigation() {
   const [isLoading, setLoading] = useState(true)
@@ -23,11 +18,13 @@ export function NativeNavigation() {
     .finally(() => setTimeout(() => setLoading(false), 250))
 
   return isLoading ? (
+    //Splash screen
     <LoadingView />
   ) : !authenticated ? (
+    //Login screen
     <Stack.Navigator>
       <Stack.Screen
-        name="user-login"
+        name={screens.LOGIN}
         component={UserLoginScreen}
         options={{
           headerShown: false,
@@ -36,20 +33,14 @@ export function NativeNavigation() {
       />
     </Stack.Navigator>
   ) : (
+    //All others screens
     <Stack.Navigator>
       <Stack.Screen
-        name="user-welcome"
-        component={UserWelcomeScreen}
+        name={screens.HOME}
+        component={HomeScreen}
         options={{
           headerShown: false,
           title: 'Welcome',
-        }}
-      />
-      <Stack.Screen
-        name="user-detail"
-        component={UserDetailScreen}
-        options={{
-          title: 'User',
         }}
       />
     </Stack.Navigator>

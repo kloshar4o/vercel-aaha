@@ -1,9 +1,9 @@
 import { Screen } from 'app/design/layout'
 import { TextInput, View, Image } from 'react-native'
 import { useContext, useEffect, useRef, useState } from 'react'
-import { FormInput, KeyboardAvoid } from '../../design/form'
-import { CustomButton } from '../../design/buttons'
-import { AuthContext } from '../../provider/auth/AuthContext'
+import { FormInput, KeyboardAvoid } from 'app/design/form'
+import { CustomButton } from 'app/design/buttons'
+import { AuthContext } from 'app/provider/auth/AuthContext'
 
 export function UserLoginScreen() {
   const { authorize } = useContext(AuthContext)
@@ -36,7 +36,7 @@ export function UserLoginScreen() {
           <Image
             className="mb-4 h-16 w-full"
             resizeMode="contain"
-            source={require('../../assets/img/logo.png')}
+            source={require('app/assets/img/logo.png')}
           />
           <FormInput
             label="Username"

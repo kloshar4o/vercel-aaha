@@ -1,11 +1,11 @@
 import { ImageBackground, TouchableOpacity, View } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
-import RightArrow from '../../assets/svg/right-arrow'
+import RightArrow from 'app/assets/svg/right-arrow'
 import { useRouter } from 'solito/router'
 import { H1, P, Text } from 'app/design/typography'
-import { Row, Screen } from '../../design/layout'
+import { Row, Screen } from 'app/design/layout'
 
-export function UserWelcomeScreen() {
+export function HomeScreen() {
   const { push } = useRouter()
 
   const GreenColumn = (props: any) => (

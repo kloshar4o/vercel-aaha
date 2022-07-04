@@ -14,6 +14,10 @@ All notable changes to this project will be documented in this file.
 
 # Versions
 
+### [0.2.3]
+
+- 👌 IMPROVE: Cleanup, comments and namings
+
 ### [0.2.2]
 
 - 🐛 FIX: Build errors

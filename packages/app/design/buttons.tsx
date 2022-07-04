@@ -4,13 +4,13 @@ import {
   TouchableOpacity,
   TouchableOpacityProps,
 } from 'react-native'
-import { styled } from 'tailwindcss-react-native'
+import { styled, StyledProps } from 'tailwindcss-react-native'
 
-interface TouchableProps extends TouchableOpacityProps {
-  className?: string
+export const Touchable = styled(TouchableOpacity)
+
+interface TouchableProps extends StyledProps<TouchableOpacityProps> {
   loading?: boolean
 }
-export const Touchable = styled(TouchableOpacity)
 
 export const CustomButton = (props: TouchableProps) => {
   return (

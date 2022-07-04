@@ -1,18 +1,17 @@
 import { ActivityIndicator, View } from 'react-native'
 import { styled } from 'tailwindcss-react-native'
-import { SafeArea } from '../provider/safe-area'
-const backgroundColor = '#111827' //gray-900
+import { SafeArea } from 'app/provider/safe-area'
 
 export const Row = styled(View, 'flex-row')
 
 export const LoadingView = (props: {}) => {
-  /* Styles are loaded faster than tailwind classes */
+  /* Using styles since they are loaded faster than tailwind classes */
   return (
     <View
       style={{
         flex: 1,
         justifyContent: 'center',
-        backgroundColor,
+        backgroundColor: '#111827', //gray-900
       }}
       {...props}
     >
