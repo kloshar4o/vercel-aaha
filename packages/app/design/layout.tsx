@@ -11,7 +11,7 @@ export const LoadingView = (props: {}) => {
       style={{
         flex: 1,
         justifyContent: 'center',
-        backgroundColor: '#111827', //gray-900
+        backgroundColor: 'black',
       }}
       {...props}
     >
@@ -21,15 +21,13 @@ export const LoadingView = (props: {}) => {
 }
 export const Screen = (props: any) => {
   return (
-    <View className="flex-1 justify-center bg-gray-900">
-      <SafeArea>
-        <View
-          className="mx-auto w-full max-w-lg max-w-lg flex-1 shadow"
-          {...props}
-        >
-          {props.children}
-        </View>
-      </SafeArea>
+    <View className="flex-1 justify-center bg-black">
+      <View
+        className="mx-auto w-full max-w-lg max-w-lg flex-1 shadow"
+        {...props}
+      >
+        {props.children}
+      </View>
     </View>
   )
 }

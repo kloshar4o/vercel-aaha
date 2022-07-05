@@ -14,6 +14,10 @@ All notable changes to this project will be documented in this file.
 
 # Versions
 
+### [0.3.0]
+
+- 📦 NEW: Added Running page
+
 ### [0.2.3]
 
 - 👌 IMPROVE: Cleanup, comments and namings

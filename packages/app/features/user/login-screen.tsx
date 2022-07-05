@@ -1,5 +1,5 @@
 import { Screen } from 'app/design/layout'
-import { TextInput, View, Image } from 'react-native'
+import { TextInput, View, Image, Text } from 'react-native'
 import { useContext, useEffect, useRef, useState } from 'react'
 import { FormInput, KeyboardAvoid } from 'app/design/form'
 import { CustomButton } from 'app/design/buttons'
@@ -62,11 +62,11 @@ export function UserLoginScreen() {
           />
           <CustomButton
             onPress={onLogin.bind({})}
-            className="mt-14 w-full rounded-full"
+            className="mt-14 w-full"
             loading={submitting}
             disabled={!!(passwordError || usernameError)}
           >
-            Sign In
+            <Text className="text-lg font-bold">Sign In</Text>
           </CustomButton>
         </View>
       </Screen>

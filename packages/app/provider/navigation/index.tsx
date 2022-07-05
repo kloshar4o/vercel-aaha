@@ -14,6 +14,7 @@ export function NavigationProvider({ children }: { children: ReactNode }) {
             screens: {
               [screens.HOME]: routes.HOME,
               [screens.LOGIN]: routes.LOGIN,
+              [screens.RUNNING]: routes.RUNNING,
             },
           },
         }),

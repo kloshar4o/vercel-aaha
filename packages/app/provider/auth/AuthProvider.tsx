@@ -4,6 +4,7 @@ import { login } from 'app/api/auth'
 
 export const AuthProvider = (props: { children: JSX.Element }): JSX.Element => {
   const [authenticated, setAuthenticated] = useState(true)
+  const [requestedPage, setRequestedPage] = useState('')
 
   const authorize = (username: string, password: string) =>
     login(username, password).then((response) => {
@@ -13,9 +14,11 @@ export const AuthProvider = (props: { children: JSX.Element }): JSX.Element => {
 
   const contextValue = useMemo(() => {
     return {
+      authorize,
       authenticated,
       setAuthenticated,
-      authorize,
+      requestedPage,
+      setRequestedPage,
     }
   }, [authenticated])
 

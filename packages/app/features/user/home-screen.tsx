@@ -1,17 +1,21 @@
 import { ImageBackground, TouchableOpacity, View } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
-import RightArrow from 'app/assets/svg/right-arrow'
+import { RightArrow } from 'app/assets/svg/right-arrow'
 import { useRouter } from 'solito/router'
 import { H1, P, Text } from 'app/design/typography'
 import { Row, Screen } from 'app/design/layout'
+import { routes } from 'app/constants/routes'
+import { CustomButton } from 'app/design/buttons'
+import { colors } from '../../constants/colors'
 
 export function HomeScreen() {
   const { push } = useRouter()
+  const getStarted = () => push(routes.RUNNING)
 
   const GreenColumn = (props: any) => (
     <View className="mx-2 overflow-hidden rounded-3xl">
       <LinearGradient
-        colors={['#9be83b', 'transparent']}
+        colors={[colors.lime['400'], 'transparent']}
         className="w-4"
         {...props}
       />
@@ -34,7 +38,12 @@ export function HomeScreen() {
           className="p-8 pt-12"
           start={{ x: 0, y: 1 }}
           end={{ x: 1, y: 0 }}
-          colors={['#2a2a2a', '#555555', '#2a2a2a', '#2a2a2a']}
+          colors={[
+            colors.zinc['900'],
+            colors.zinc['700'],
+            colors.zinc['800'],
+            colors.zinc['900'],
+          ]}
         >
           <H1>
             <Text className="text-lime-400">Track</Text>
@@ -44,22 +53,19 @@ export function HomeScreen() {
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse,
             fugiat in incidunt magnam molestias
           </P>
-          <TouchableOpacity
-            activeOpacity={0.6}
-            onPress={() => push('/user/fernando')}
-          >
+          <TouchableOpacity activeOpacity={0.6} onPress={getStarted}>
             <View className="overflow-hidden rounded-3xl opacity-100 transition hover:opacity-80">
               <LinearGradient
                 // Button Linear Gradient
                 start={{ x: 0, y: 0.5 }}
                 end={{ x: 1, y: 0.5 }}
-                colors={['#717171', 'transparent']}
+                colors={[colors.zinc['600'], colors.zinc['900']]}
               >
                 <Row className="items-center justify-between p-2">
                   <Text className="pl-4 text-lg text-white">Get Started</Text>
-                  <View className="h-14 w-14 rounded-2xl bg-lime-400 p-5">
-                    <RightArrow className="text-black" />
-                  </View>
+                  <CustomButton className="h-16 w-16" onPress={getStarted}>
+                    <RightArrow className="h-4 w-4 text-black" />
+                  </CustomButton>
                 </Row>
               </LinearGradient>
             </View>

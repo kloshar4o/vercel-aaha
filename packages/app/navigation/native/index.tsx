@@ -1,11 +1,12 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { HomeScreen } from 'app/features/user/home-screen'
-import { UserLoginScreen } from 'app/features/user/login-screen'
 import { useContext, useState } from 'react'
-import { AuthContext } from 'app/provider/auth/AuthContext'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { checkSessionThrottle } from 'app/api/auth'
 import { LoadingView } from 'app/design/layout'
+import { AuthContext } from 'app/provider/auth/AuthContext'
 import { screens } from 'app/constants/routes'
+import { HomeScreen } from 'app/features/user/home-screen'
+import { RunningScreen } from 'app/features/user/running-screen'
+import { UserLoginScreen } from 'app/features/user/login-screen'
 
 const Stack = createNativeStackNavigator()
 
@@ -28,7 +29,6 @@ export function NativeNavigation() {
         component={UserLoginScreen}
         options={{
           headerShown: false,
-          title: 'Login',
         }}
       />
     </Stack.Navigator>
@@ -40,7 +40,13 @@ export function NativeNavigation() {
         component={HomeScreen}
         options={{
           headerShown: false,
-          title: 'Welcome',
+        }}
+      />
+      <Stack.Screen
+        name={screens.RUNNING}
+        component={RunningScreen}
+        options={{
+          headerShown: false,
         }}
       />
     </Stack.Navigator>

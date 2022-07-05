@@ -13,6 +13,7 @@
       "bundleIdentifier": "com.solito.tailwindcss"
     },
     "description": "",
-    "githubUrl": "https://github.com/kloshar4o/vercel-aaha"
+    "githubUrl": "https://github.com/kloshar4o/vercel-aaha",
+    "orientation": "portrait"
   }
 }

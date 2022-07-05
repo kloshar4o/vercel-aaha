@@ -8,7 +8,7 @@ export const Text = styled(RNText)
 /**
  * You can use this pattern to create components with default styles
  */
-export const P = styled(RNText, 'text-base text-[#a2a2a2] mb-4')
+export const P = styled(RNText, 'text-base text-zinc-300 mb-4')
 P.defaultProps = {
   accessibilityRole: 'text',
   selectable: true,
