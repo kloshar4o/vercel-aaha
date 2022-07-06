@@ -36,15 +36,15 @@ export function NativeNavigation() {
     //All others screens
     <Stack.Navigator>
       <Stack.Screen
-        name={screens.HOME}
-        component={HomeScreen}
+        name={screens.RUNNING}
+        component={RunningScreen}
         options={{
           headerShown: false,
         }}
       />
       <Stack.Screen
-        name={screens.RUNNING}
-        component={RunningScreen}
+        name={screens.HOME}
+        component={HomeScreen}
         options={{
           headerShown: false,
         }}
