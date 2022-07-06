@@ -14,6 +14,10 @@ All notable changes to this project will be documented in this file.
 
 # Versions
 
+### [1.0.0]
+
+- 🚀 RELEASE: Version 1.0.0
+
 ### [0.4.0]
 
 - 📦 NEW: Functionality to running page
