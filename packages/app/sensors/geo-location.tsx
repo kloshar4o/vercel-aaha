@@ -1,4 +1,4 @@
-let runningSpeedKMH = 10
+let runningSpeedKMH = 5
 let increasingSpeed = true
 export function getDistanceMoved(interval = 0) {
   //simulate different speeds

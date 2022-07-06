@@ -1,50 +1,41 @@
-# Solito + Tailwind CSS Example Monorepo 🕴
+# 🏃‍ Running App 
 
-## ⚡️ Instantly clone & deploy
+Web and mobile app using [Expo](https://expo.dev/) and [NextJS](https://nextjs.org/)  
+For routing [solito](https://solito.dev/) was used with [solito boilerplate](https://github.com/nandorojo/solito/tree/master/example-monorepos/blank) blank project
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fnandorojo%2Fsolito%2Ftree%2Fmaster%2Fexample-monorepos%2Fwith-tailwindcss&env=ENABLE_ROOT_PATH_BUILD_CACHE&root-directory=apps/next&envDescription=Set%20this%20environment%20variable%20to%201%20for%20Turborepo%20to%20cache%20your%20node_modules.&envLink=https%3A%2F%2Ftwitter.com%2Fjaredpalmer%2Fstatus%2F1488954563533189124&project-name=solito-app&repo-name=solito-app&demo-title=Solito%20App%20%E2%9A%A1%EF%B8%8F&demo-description=React%20Native%20%2B%20Next.js%20starter%20with%20Solito.%20Made%20by%20Fernando%20Rojo.&demo-url=https%3A%2F%2Fsolito.dev%2Fstarter&demo-image=https%3A%2F%2Fsolito.dev%2Fimg%2Fog.png)
+Web public: https://vercel-aaha.vercel.app  
+Mobile public: https://expo.dev/@kloshar4o/running-app
 
-## 🔦 About
+### - Login Page
+Mocked login form with simple `required` validation.
 
-This monorepo is a starter for an Expo + Next.js app using [tailwindcss-react-native](https://tailwindcss-react-native.vercel.app) for its styling.
+Additionally, route guard is added for hiding pages if not authorized.  
 
-> :warning: This example is using the Preview version of React Native Web 0.18
+If user is trying to access guarded page, redirect to the login form will occur.   
 
-## 👓 How Tailwind CSS works with Solito
+After authorization, the user will be redirected to the requested page
 
-**iOS and Android** apps use Babel to compile the styles and output them as `StyleSheet.create` objects at build-time.
+<img src="screenshots/login.png" width="600">
 
-On the other hand, the web app uses Next.js's inbuilt `PostCSS` feature outputs CSS StyleSheets. On Web, `tailwindcss-react-native` uses actual CSS classnames. This is unlike iOS and Android, where styles are compiled into objects.
+### - Welcome Page
+After logging in you will be presented with a welcome screen
 
-Since two different compilation methods are used across platforms, the components must be written using the `styled()` higher-order component. Take a look at the [`/packages/app/design`](/packages/app/design) folder to see how components are created with ease.
+<img src="screenshots/welcome.png" width="200">
 
-## 📦 Included packages
+### - Running Page
+For stopwatch functionality [ts-stopwatch](https://github.com/UselessPickles/ts-stopwatch) is used  
 
-- `solito` for cross-platform navigation
-- `tailwindcss-react-native` for theming/design (you can bring your own, too)
-- Expo SDK 44
-- Next.js 12
-- React Navigation 6
+Distance, burned calories and average pace is calculated on the client side.  
 
-## 🗂 Folder layout
+User can navigate back and forward between **welcome** and **running** pages,
+without effecting the running script.  
 
-- `apps` entry points for each app
+User can reset the stop watch by clicking the ✅ check icon at the bottom right
 
-  - `expo`
-  - `next`
+<img src="screenshots/running.png" width="400">
 
-- `packages` shared packages across apps
-  - `app` you'll be importing most files from `app/`
-    - `features` (don't use a `screens` folder. organize by feature.)
-    - `provider` (all the providers that wrap the app, and some no-ops for Web.)
-    - `navigation` Next.js has a `pages/` folder. React Native doesn't. This folder contains navigation-related code for RN. You may use it for any navigation code, such as custom links.
-    - `design` your app's design system. organize this as you please.
-      - `typography` (components for all the different text styles)
-      - `layout` (components for layouts)
 
-You can add other folders inside of `packages/` if you know what you're doing and have a good reason to.
-
-## 🏁 Start the app
+## Development
 
 - Install dependencies: `yarn`
 
@@ -52,30 +43,3 @@ You can add other folders inside of `packages/` if you know what you're doing an
   - Runs `yarn next`
 - Expo local dev: `yarn native`
   - Runs `expo start`
-
-## 🆕 Add new dependencies
-
-### Pure JS dependencies
-
-If you're installing a JavaScript-only dependency that will be used across platforms, install it in `packages/app`:
-
-```sh
-cd packages/app
-yarn add date-fns
-cd ../..
-yarn
-```
-
-### Native dependencies
-
-If you're installing a library with any native code, you must install it in `apps/expo`:
-
-```sh
-cd apps/expo
-yarn add react-native-reanimated
-
-cd ../..
-yarn
-```
-
-You can also install the native library inside of `packages/app` if you want to get autoimport for that package inside of the `app` folder. However, you need to be careful and install the _exact_ same version in both packages. If the versions mismatch at all, you'll potentially get terrible bugs. This is a classic monorepo issue. I use `lerna-update-wizard` to help with this (you don't need to use Lerna to use that lib).

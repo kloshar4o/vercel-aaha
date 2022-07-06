@@ -1,5 +1,5 @@
 let sessionThrottling = false
-let fakeValidSession = true
+let fakeValidSession = false
 
 export const login = (username: string, password: string) => {
   return new Promise((resolve) => {
