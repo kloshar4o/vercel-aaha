@@ -1,7 +1,7 @@
 # 🏃‍ Running App 
 
 Web and mobile app using [Expo](https://expo.dev/) and [NextJS](https://nextjs.org/)  
-For routing [solito](https://solito.dev/) was used with [solito boilerplate](https://github.com/nandorojo/solito/tree/master/example-monorepos/blank) blank projcet
+For routing [solito](https://solito.dev/) was used with [solito boilerplate](https://github.com/nandorojo/solito/tree/master/example-monorepos/blank) blank project
 
 Web public: https://vercel-aaha.vercel.app  
 Mobile public: https://expo.dev/@kloshar4o/running-app
